@@ -1,0 +1,63 @@
+/*Make ur Family always proud
+
+while (!achieve acpc)
+{
+keep practice always and help another people to achieve it}
+*/
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <list>
+#include <queue>
+#include <deque>
+#include <map>
+#include <stack>
+using namespace std;
+typedef long long ll;
+typedef long double ld;
+typedef vector<ll> longelem;
+int dx[] = {0, 0, 1, -1, 1, 1, -1, -1};
+int dy[] = {1, -1, 0, 0, 1, -1, 1, -1};
+bool grid[1005][1005] ;
+pair<int,int>a , b , c ,d ;
+
+void ZEZO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr), cout.tie(nullptr);
+}
+ll harry_potter(ll base, ll expo,ll mod)
+{
+    if (expo == 0)
+    {
+        return 1;
+    }
+    if (expo == 1)
+    {
+        return base%mod;
+    }
+    if (expo % 2 == 0)
+    {
+        ll ret = harry_potter(base, expo / 2,mod) % mod;
+        return (ret% mod *ret% mod) % mod;
+    }
+    else
+    {
+        ll ret = harry_potter(base, expo - 1,mod) % mod;
+        return (base% mod *ret% mod) % mod;
+    }
+}
+int main()
+{
+    ZEZO();
+    int B , P , M ;
+
+    while (cin>>B>>P>>M)
+    {
+        cout<< harry_potter(B,P,M)<<"\n";
+    }
+}
